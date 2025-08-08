@@ -1,8 +1,10 @@
 from flask import Flask, render_template , redirect, url_for , send_from_directory
 from flask_bootstrap import Bootstrap5
+import os
 import csv
 app = Flask(__name__)
-
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
+Bootstrap5(app)
 @app.route("/")
 def home():
     with open('michaelkim-portfolio.csv', newline='', encoding='utf-8') as csv_file:
