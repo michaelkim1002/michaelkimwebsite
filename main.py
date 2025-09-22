@@ -19,7 +19,7 @@ def resume():
     return render_template("resume.html")
 @application.route('/download')
 def download():
-    return send_from_directory("static/files", "MichaelKimResume.pdf", as_attachment=True)
+    return send_from_directory("static/files", "MichaelKimResume.pdf")
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
