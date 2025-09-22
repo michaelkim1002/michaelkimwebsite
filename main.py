@@ -21,5 +21,5 @@ def resume():
 def download():
     return send_from_directory("static/files", "MichaelKimResume.pdf", as_attachment=True)
 
-#if __name__ == "__main__":
-    #app.run(debug=False, port=5003)
+if __name__ == "__main__":
+    app.run(debug=False, port=5003)
