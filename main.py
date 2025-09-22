@@ -19,8 +19,7 @@ def resume():
     return render_template("resume.html")
 @app.route('/download')
 def download():
-    return send_from_directory(
-        "static", path = "files/MichaelKimResume.pdf"
-    )
-if __name__ == "__main__":
-    app.run(debug=False, port=5003)
+    return send_from_directory("static/files", "MichaelKimResume.pdf", as_attachment=True)
+
+#if __name__ == "__main__":
+    #app.run(debug=False, port=5003)
