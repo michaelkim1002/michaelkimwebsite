@@ -22,4 +22,5 @@ def download():
     return send_from_directory("static/files", "MichaelKimResume.pdf", as_attachment=True)
 
 if __name__ == "__main__":
-    application.run(debug=False, port=5003)
+    port = int(os.environ.get("PORT", 8080))
+    application.run(debug=False, host='0.0.0.0', port=port)
