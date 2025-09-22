@@ -2,10 +2,10 @@ from flask import Flask, render_template , redirect, url_for , send_from_directo
 from flask_bootstrap import Bootstrap5
 import os
 import csv
-application = Flask(__name__)
-application.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
-Bootstrap5(application)
-@application.route("/")
+app = Flask(__name__)
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
+Bootstrap5(app)
+@app.route("/")
 def home():
     with open('michaelkim-portfolio.csv', newline='', encoding='utf-8') as csv_file:
         csv_data = csv.reader(csv_file, delimiter=',')
@@ -14,13 +14,13 @@ def home():
             list_of_rows.append(row)
         print(list_of_rows)
     return render_template("index.html", projects=list_of_rows)
-@application.route("/resume")
+@app.route("/resume")
 def resume():
     return render_template("resume.html")
-@application.route('/download')
+@app.route('/download')
 def download():
     return send_from_directory(
         "static", path = "files/MichaelKimResume.pdf"
     )
 if __name__ == "__main__":
-    application.run(debug=False, port=5003)
+    app.run(debug=False, port=5003)
