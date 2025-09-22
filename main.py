@@ -21,7 +21,7 @@ def resume():
 def download():
     return send_from_directory("static/files", "MichaelKimResume.pdf")
 if __name__ == "__main__":
-    app.run(debug=False, port=5003)
+    application.run(debug=False, port=5003)
 #if __name__ == "__main__":
     #port = int(os.environ.get("PORT", 8080))
     #application.run(host='0.0.0.0', port=port, debug=False)
